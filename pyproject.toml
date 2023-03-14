@@ -1,0 +1,30 @@
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+deploy = [
+    "cookiecutter>=2.1.1",
+]
+
+[tool.pdm.scripts]
+zeo_create = "pdm run mkzeoinstance zeo localhost:8100"
+zeo_start = "./zeo/bin/zeoctl start"
+zeo_stop = "./zeo/bin/zeoctl stop"
+client_create = "cookiecutter -f --no-input --config-file {args} https://github.com/plone/cookiecutter-zope-instance"
+client1_start = "runwsgi instance01/etc/zope.ini"
+client2_start = "runwsgi instance02/etc/zope.ini"
+
+
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "MrTango", email = "md@derico.de"},
+]
+dependencies = [
+    "Products.CMFPlone>=6.0.2",
+    "zope-mkzeoinstance>=5.0",
+    "zeo>=5.4.0",
+    "pyruvate>=1.2.1",
+]
+requires-python = ">=3.8,<3.12"
+license = {text = "GPL"}
